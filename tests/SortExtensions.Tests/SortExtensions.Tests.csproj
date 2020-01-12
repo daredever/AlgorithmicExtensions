@@ -19,4 +19,12 @@
   <ItemGroup>
     <Compile Remove="UnitTest1.cs" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\SortExtensions\SortExtensions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Sorters" />
+  </ItemGroup>
 </Project>
