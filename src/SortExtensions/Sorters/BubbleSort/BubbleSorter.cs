@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using SortExtensions.Helpers;
+using static SortExtensions.Helpers.SwapHelper;
 
 namespace SortExtensions.Sorters.BubbleSort
 {
@@ -40,7 +40,7 @@ namespace SortExtensions.Sorters.BubbleSort
                     var next = current + 1;
                     if (sortedData[current].CompareTo(sortedData[next]) > 0)
                     {
-                        SwapHelper.Swap(sortedData, current, next);
+                        Swap(sortedData, current, next);
                         isSorted = false;
                     }
                 }

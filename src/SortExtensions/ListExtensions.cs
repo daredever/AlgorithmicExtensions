@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SortExtensions.Helpers;
 using SortExtensions.Sorters;
+using static SortExtensions.Helpers.SortHelper;
+using static SortExtensions.Helpers.ValidationHelper;
 
 namespace SortExtensions
 {
@@ -25,9 +26,9 @@ namespace SortExtensions
             SortingAlgorithm sortingAlgorithm = SortingAlgorithm.Default)
             where T : IComparable
         {
-            ValidationHelper.CheckSource(source);
+            CheckSource(source);
 
-            return SortHelper.ListSort(source, 0, source.Count, SorterFactory.GetSorter(sortingAlgorithm));
+            return ListSort(source, 0, source.Count, SorterFactory.GetSorter(sortingAlgorithm));
         }
 
         /// <summary>
@@ -46,10 +47,10 @@ namespace SortExtensions
         public static IList<T> Sort<T>(this IList<T> source, ISorter sorter)
             where T : IComparable
         {
-            ValidationHelper.CheckSource(source);
-            ValidationHelper.CheckSorter(sorter);
+            CheckSource(source);
+            CheckSorter(sorter);
 
-            return SortHelper.ListSort(source, 0, source.Count, sorter);
+            return ListSort(source, 0, source.Count, sorter);
         }
 
         /// <summary>
@@ -71,11 +72,11 @@ namespace SortExtensions
             SortingAlgorithm sortingAlgorithm = SortingAlgorithm.Default)
             where T : IComparable
         {
-            ValidationHelper.CheckSource(source);
-            ValidationHelper.CheckSectionBounds(index, length);
-            ValidationHelper.CheckSourceBounds(index, length, Math.Max(source.Count - 1, 0));
+            CheckSource(source);
+            CheckSectionBounds(index, length);
+            CheckSourceBounds(index, length, Math.Max(source.Count - 1, 0));
 
-            return SortHelper.ListSort(source, index, length, SorterFactory.GetSorter(sortingAlgorithm));
+            return ListSort(source, index, length, SorterFactory.GetSorter(sortingAlgorithm));
         }
 
         /// <summary>
@@ -96,12 +97,12 @@ namespace SortExtensions
         public static IList<T> Sort<T>(this IList<T> source, int index, int length, ISorter sorter)
             where T : IComparable
         {
-            ValidationHelper.CheckSource(source);
-            ValidationHelper.CheckSorter(sorter);
-            ValidationHelper.CheckSectionBounds(index, length);
-            ValidationHelper.CheckSourceBounds(index, length, Math.Max(source.Count - 1, 0));
+            CheckSource(source);
+            CheckSorter(sorter);
+            CheckSectionBounds(index, length);
+            CheckSourceBounds(index, length, Math.Max(source.Count - 1, 0));
 
-            return SortHelper.ListSort(source, index, length, sorter);
+            return ListSort(source, index, length, sorter);
         }
     }
 }

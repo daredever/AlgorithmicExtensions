@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SortExtensions.Helpers;
 using SortExtensions.Sorters;
+using static SortExtensions.Helpers.SortHelper;
+using static SortExtensions.Helpers.ValidationHelper;
 
 namespace SortExtensions
 {
@@ -27,10 +28,10 @@ namespace SortExtensions
             SortingAlgorithm sortingAlgorithm = SortingAlgorithm.Default)
             where T : IComparable
         {
-            ValidationHelper.CheckSource(source);
-            ValidationHelper.CheckSectionBounds(index, length);
+            CheckSource(source);
+            CheckSectionBounds(index, length);
 
-            return SortHelper.EnumerableSort(source, index, length, SorterFactory.GetSorter(sortingAlgorithm));
+            return EnumerableSort(source, index, length, SorterFactory.GetSorter(sortingAlgorithm));
         }
 
         /// <summary>
@@ -51,11 +52,11 @@ namespace SortExtensions
         public static IEnumerable<T> Sort<T>(this IEnumerable<T> source, int index, int length, ISorter sorter)
             where T : IComparable
         {
-            ValidationHelper.CheckSource(source);
-            ValidationHelper.CheckSorter(sorter);
-            ValidationHelper.CheckSectionBounds(index, length);
+            CheckSource(source);
+            CheckSorter(sorter);
+            CheckSectionBounds(index, length);
 
-            return SortHelper.EnumerableSort(source, index, length, sorter);
+            return EnumerableSort(source, index, length, sorter);
         }
     }
 }

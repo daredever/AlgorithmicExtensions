@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SortExtensions.Sorters;
+using static SortExtensions.Helpers.ValidationHelper;
 
 namespace SortExtensions.Helpers
 {
@@ -35,7 +36,7 @@ namespace SortExtensions.Helpers
 
             // Return sorted elements in specified section.
             var sourceForSort = source.Skip(index).Take(length).ToArray();
-            ValidationHelper.CheckSourceBounds(0, length, Math.Max(sourceForSort.Length - 1, 0));
+            CheckSourceBounds(0, length, Math.Max(sourceForSort.Length - 1, 0));
             var sortedSource = ListSort(sourceForSort, 0, length, sorter);
             foreach (var item in sortedSource)
             {
