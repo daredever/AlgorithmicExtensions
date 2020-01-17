@@ -12,7 +12,8 @@ namespace SortExtensions.Sorters
                 case SortingAlgorithm.BubbleSort:
                     return new BubbleSorter();
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(sortingAlgorithm), sortingAlgorithm, null);
+                    throw new ArgumentOutOfRangeException(nameof(sortingAlgorithm), sortingAlgorithm,
+                        "Algorithm is not supported.");
             }
         }
     }

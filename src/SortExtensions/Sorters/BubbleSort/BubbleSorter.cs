@@ -12,7 +12,7 @@ namespace SortExtensions.Sorters.BubbleSort
     /// To learn more, see https://en.wikipedia.org/wiki/Bubble_sort.
     /// </remarks>
     /// </summary>
-    public class BubbleSorter : ISorter
+    public sealed class BubbleSorter : ISorter
     {
         public IList<T> Sort<T>(IList<T> source, int index, int length)
             where T : IComparable
