@@ -12,22 +12,21 @@ namespace SortExtensions.Tests.TestDataGenerator
 
         public IEnumerator<object[]> GetEnumerator()
         {
-            int[] source;
-            int[] expected;
+            int[] source, expected;
 
-            source = new int[] {1, 1, 1, 1, 1, 1};
+            source = new[] {1, 1, 1, 1, 1, 1};
             expected = _defaultSorter.Sort(source, 0, source.Length).ToArray();
             yield return new object[] {source, expected};
 
-            source = new int[] {5, 1, 3, 4, 2, 0};
+            source = new[] {5, 1, 3, 4, 2, 0};
             expected = _defaultSorter.Sort(source, 0, source.Length).ToArray();
             yield return new object[] {source, expected};
 
-            source = new int[] {5, 1, 3, 4, 2, 100};
+            source = new[] {5, 1, 3, 4, 2, 100};
             expected = _defaultSorter.Sort(source, 0, source.Length).ToArray();
             yield return new object[] {source, expected};
 
-            source = new int[] {1000, 5, 1, 3, 4, 2, 100};
+            source = new[] {1000, 5, 1, 3, 4, 2, 100};
             expected = _defaultSorter.Sort(source, 0, source.Length).ToArray();
             yield return new object[] {source, expected};
 
@@ -35,15 +34,15 @@ namespace SortExtensions.Tests.TestDataGenerator
             expected = _defaultSorter.Sort(source, 0, source.Length).ToArray();
             yield return new object[] {source, expected};
 
-            source = new int[] {1000};
+            source = new[] {1000};
             expected = _defaultSorter.Sort(source, 0, source.Length).ToArray();
             yield return new object[] {source, expected};
 
-            source = new int[] {1, 2};
+            source = new[] {1, 2};
             expected = _defaultSorter.Sort(source, 0, source.Length).ToArray();
             yield return new object[] {source, expected};
 
-            source = new int[] {1, -2, 3};
+            source = new[] {1, -2, 3};
             expected = _defaultSorter.Sort(source, 0, source.Length).ToArray();
             yield return new object[] {source, expected};
         }
