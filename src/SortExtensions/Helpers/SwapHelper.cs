@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using static SortExtensions.Helpers.ValidationHelper;
 
 namespace SortExtensions.Helpers
 {
@@ -15,7 +16,7 @@ namespace SortExtensions.Helpers
         /// <exception cref="ArgumentNullException">If source is null</exception>
         internal static void Swap<T>(IList<T> source, int sourceIndex, int destinationIndex)
         {
-            ValidationHelper.CheckSource(source);
+            CheckSource(source);
 
             var temp = source[sourceIndex];
             source[sourceIndex] = source[destinationIndex];
