@@ -18,5 +18,14 @@ namespace SortExtensions
         /// Best-case performance O(n).
         /// </remarks>
         BubbleSort,
+        
+        /// <summary>
+        /// Sorts the elements of a zero-based collection with the Selection Sort Algorithm.
+        /// </summary>
+        /// <remarks>
+        /// Worst-case performance O(n^2).
+        /// Best-case performance O(n).
+        /// </remarks>
+        SelectionSort,
     }
 }

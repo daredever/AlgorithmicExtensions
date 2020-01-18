@@ -13,7 +13,7 @@ namespace SortExtensions.Helpers
         /// <param name="sourceIndex">First item index</param>
         /// <param name="destinationIndex">Second item index</param>
         /// <typeparam name="T">Generic type</typeparam>
-        /// <exception cref="ArgumentNullException">If source is null</exception>
+        /// <exception cref="ArgumentNullException">source is null</exception>
         internal static void Swap<T>(IList<T> source, int sourceIndex, int destinationIndex)
         {
             CheckSource(source);
