@@ -29,10 +29,9 @@ namespace SortExtensions.Sorters.BubbleSort
 
             // The Bubble Sort Algorithm core.
             // For each iteration decrease last index, cause it's already sorted.
+            var isSorted = true;
             for (var lastIndex = index + length - 1; lastIndex >= index; lastIndex--)
             {
-                var isSorted = true;
-
                 // Compare current and next elements, swap if needed.
                 // Ascending order sort.
                 for (var current = index; current < lastIndex; current++)
