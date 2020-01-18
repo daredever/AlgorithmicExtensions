@@ -24,7 +24,7 @@ namespace SortExtensions
         /// </summary>
         /// <remarks>
         /// Worst-case performance O(n^2).
-        /// Best-case performance O(n).
+        /// Best-case performance O(n^2).
         /// </remarks>
         SelectionSort,
     }

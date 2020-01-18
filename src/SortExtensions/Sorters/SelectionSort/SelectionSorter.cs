@@ -8,7 +8,7 @@ namespace SortExtensions.Sorters.SelectionSort
     /// The Selection Sort Algorithm for a generic zero-based collection.
     /// <remarks>
     /// Worst-case performance O(n^2).
-    /// Best-case performance O(n).
+    /// Best-case performance O(n^2).
     /// To learn more, see https://en.wikipedia.org/wiki/Selection_sort.
     /// </remarks>
     /// </summary>
