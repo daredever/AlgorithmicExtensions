@@ -13,6 +13,8 @@ namespace SortExtensions
         /// Sorts the elements of a zero-based collection with specified algorithm.
         /// The sort compares the elements to each other using the IComparable interface,
         /// which must be implemented by all elements of the collection.
+        /// If comparer is null, the elements are compared to each other using the IComparable
+        /// interface, which in that case must be implemented by all elements of the collection.
         /// </summary>
         /// <param name="source">Collection of elements</param>
         /// <param name="sortingAlgorithm">Sorting algorithm</param>
@@ -36,6 +38,8 @@ namespace SortExtensions
         /// Sorts the elements of a zero-based collection with specified algorithm.
         /// The sort compares the elements to each other using the IComparable interface,
         /// which must be implemented by all elements of the collection.
+        /// If comparer is null, the elements are compared to each other using the IComparable
+        /// interface, which in that case must be implemented by all elements of the collection.
         /// </summary>
         /// <param name="source">Collection of elements</param>
         /// <param name="sorter">Implementation of sorting algorithm</param>
@@ -59,6 +63,8 @@ namespace SortExtensions
         /// Sorts the elements of a zero-based collection with specified algorithm.
         /// The sort compares the elements to each other using the IComparable interface,
         /// which must be implemented by all elements in the given section of the collection.
+        /// If comparer is null, the elements are compared to each other using the IComparable
+        /// interface, which in that case must be implemented by all elements of the collection.
         /// </summary>
         /// <param name="source">Collection of elements</param>
         /// <param name="index">Start index for sorting</param>
@@ -86,6 +92,8 @@ namespace SortExtensions
         /// Sorts the elements of a zero-based collection with specified algorithm.
         /// The sort compares the elements to each other using the IComparable interface,
         /// which must be implemented by all elements in the given section of the collection.
+        /// If comparer is null, the elements are compared to each other using the IComparable
+        /// interface, which in that case must be implemented by all elements of the collection.
         /// </summary>
         /// <param name="source">Collection of elements</param>
         /// <param name="index">Start index for sorting</param>
