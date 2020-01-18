@@ -14,8 +14,7 @@ namespace SortExtensions.Sorters.BubbleSort
     /// </summary>
     public sealed class BubbleSorter : ISorter
     {
-        public IList<T> Sort<T>(IList<T> source, int index, int length)
-            where T : IComparable
+        public IList<T> Sort<T>(IList<T> source, int index, int length, IComparer<T> comparer)
         {
             // Copy input data.
             var sortedData = new T[source.Count];
@@ -37,7 +36,7 @@ namespace SortExtensions.Sorters.BubbleSort
                 for (var current = index; current < lastIndex; current++)
                 {
                     var next = current + 1;
-                    if (sortedData[current].CompareTo(sortedData[next]) > 0)
+                    if (comparer.Compare(sortedData[current], sortedData[next]) > 0)
                     {
                         Swap(sortedData, current, next);
                         isSorted = false;

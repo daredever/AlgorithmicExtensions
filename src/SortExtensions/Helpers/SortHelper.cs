@@ -8,14 +8,14 @@ namespace SortExtensions.Helpers
 {
     internal static class SortHelper
     {
-        internal static IList<T> ListSort<T>(IList<T> source, int index, int length, ISorter sorter)
-            where T : IComparable
+        internal static IList<T> ListSort<T>(IList<T> source, int index, int length, ISorter sorter,
+            IComparer<T> comparer = null) where T : IComparable
         {
-            return sorter.Sort(source, index, length);
+            return sorter.Sort(source, index, length, comparer ?? Comparer<T>.Default);
         }
 
-        internal static IEnumerable<T> EnumerableSort<T>(IEnumerable<T> source, int index, int length, ISorter sorter)
-            where T : IComparable
+        internal static IEnumerable<T> EnumerableSort<T>(IEnumerable<T> source, int index, int length, ISorter sorter,
+            IComparer<T> comparer = null) where T : IComparable
         {
             // Do not need sorting empty section or section with only one element.
             if (length <= 1)
@@ -37,7 +37,7 @@ namespace SortExtensions.Helpers
             // Return sorted elements in specified section.
             var sourceForSort = source.Skip(index).Take(length).ToArray();
             CheckSourceBounds(0, length, Math.Max(sourceForSort.Length - 1, 0));
-            var sortedSource = ListSort(sourceForSort, 0, length, sorter);
+            var sortedSource = ListSort(sourceForSort, 0, length, sorter, comparer);
             foreach (var item in sortedSource)
             {
                 yield return item;

@@ -14,8 +14,7 @@ namespace SortExtensions.Sorters.SelectionSort
     /// </summary>
     public sealed class SelectionSorter : ISorter
     {
-        public IList<T> Sort<T>(IList<T> source, int index, int length)
-            where T : IComparable
+        public IList<T> Sort<T>(IList<T> source, int index, int length, IComparer<T> comparer)
         {
             // Copy input data.
             var sortedData = new T[source.Count];
@@ -37,7 +36,7 @@ namespace SortExtensions.Sorters.SelectionSort
                 var minIndex = firstIndex;
                 for (var current = firstIndex + 1; current <= lastIndex; current++)
                 {
-                    if (sortedData[current].CompareTo(sortedData[minIndex]) < 0)
+                    if (comparer.Compare(sortedData[current], sortedData[minIndex]) < 0)
                     {
                         minIndex = current;
                     }
