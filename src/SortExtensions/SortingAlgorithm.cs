@@ -1,3 +1,6 @@
+using SortExtensions.Sorters.BubbleSort;
+using SortExtensions.Sorters.SelectionSort;
+
 namespace SortExtensions
 {
     public enum SortingAlgorithm
@@ -14,15 +17,17 @@ namespace SortExtensions
         /// Sorts the elements of a zero-based collection with the Bubble Sort Algorithm.
         /// </summary>
         /// <remarks>
+        /// To learn more <see cref="BubbleSorter"/>.
         /// Worst-case performance O(n^2).
         /// Best-case performance O(n).
         /// </remarks>
         BubbleSort,
-        
+
         /// <summary>
         /// Sorts the elements of a zero-based collection with the Selection Sort Algorithm.
         /// </summary>
         /// <remarks>
+        /// To learn more <see cref="SelectionSorter"/>.
         /// Worst-case performance O(n^2).
         /// Best-case performance O(n^2).
         /// </remarks>
