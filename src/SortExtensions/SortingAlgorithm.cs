@@ -1,4 +1,5 @@
 using SortExtensions.Sorters.BubbleSort;
+using SortExtensions.Sorters.Default;
 using SortExtensions.Sorters.SelectionSort;
 
 namespace SortExtensions
@@ -8,8 +9,10 @@ namespace SortExtensions
         /// <summary>
         /// Sorts the elements of a zero-based collection with the default .NET implementation of Array.Sort Method.
         /// </summary>
-        /// <remarks>
-        /// To learn more, see https://docs.microsoft.com/en-us/dotnet/api/system.array.sort?view=netcore-3.1
+        /// <remarks> 
+        /// Worst-case performance O(n log n).
+        /// Best-case performance O(n).
+        /// To learn more <see cref="DefaultSorter"/>.
         /// </remarks>
         Default,
 
@@ -17,9 +20,9 @@ namespace SortExtensions
         /// Sorts the elements of a zero-based collection with the Bubble Sort Algorithm.
         /// </summary>
         /// <remarks>
-        /// To learn more <see cref="BubbleSorter"/>.
         /// Worst-case performance O(n^2).
         /// Best-case performance O(n).
+        /// To learn more <see cref="BubbleSorter"/>.
         /// </remarks>
         BubbleSort,
 
@@ -27,9 +30,9 @@ namespace SortExtensions
         /// Sorts the elements of a zero-based collection with the Selection Sort Algorithm.
         /// </summary>
         /// <remarks>
-        /// To learn more <see cref="SelectionSorter"/>.
         /// Worst-case performance O(n^2).
         /// Best-case performance O(n^2).
+        /// To learn more <see cref="SelectionSorter"/>.
         /// </remarks>
         SelectionSort,
     }

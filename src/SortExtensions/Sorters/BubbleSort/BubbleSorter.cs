@@ -6,12 +6,12 @@ namespace SortExtensions.Sorters.BubbleSort
 {
     /// <summary>
     /// The Bubble Sort Algorithm for a generic zero-based collection.
+    /// </summary>
     /// <remarks>
     /// Worst-case performance O(n^2).
     /// Best-case performance O(n).
-    /// To learn more, see https://en.wikipedia.org/wiki/Bubble_sort.
+    /// To learn more, see https://en.wikipedia.org/wiki/Bubble_sort
     /// </remarks>
-    /// </summary>
     public sealed class BubbleSorter : ISorter
     {
         public IList<T> Sort<T>(IList<T> source, int index, int length, IComparer<T> comparer)

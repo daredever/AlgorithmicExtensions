@@ -6,12 +6,12 @@ namespace SortExtensions.Sorters.SelectionSort
 {
     /// <summary>
     /// The Selection Sort Algorithm for a generic zero-based collection.
+    /// </summary>
     /// <remarks>
     /// Worst-case performance O(n^2).
     /// Best-case performance O(n^2).
-    /// To learn more, see https://en.wikipedia.org/wiki/Selection_sort.
+    /// To learn more, see https://en.wikipedia.org/wiki/Selection_sort
     /// </remarks>
-    /// </summary>
     public sealed class SelectionSorter : ISorter
     {
         public IList<T> Sort<T>(IList<T> source, int index, int length, IComparer<T> comparer)
