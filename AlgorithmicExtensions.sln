@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{D360B8EC-3712-43B0-9EFF-CFF1158AB025}"
 ProjectSection(SolutionItems) = preProject
 	README.md = README.md
+	LICENSE = LICENSE
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchExtensions", "src\SearchExtensions\SearchExtensions.csproj", "{C128A9CB-F96C-4571-95C8-430D134C55DB}"
