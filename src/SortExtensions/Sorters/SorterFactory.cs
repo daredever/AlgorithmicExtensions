@@ -1,5 +1,6 @@
 using System;
 using SortExtensions.Sorters.BubbleSort;
+using SortExtensions.Sorters.InsertionSort;
 using SortExtensions.Sorters.SelectionSort;
 
 namespace SortExtensions.Sorters
@@ -14,6 +15,8 @@ namespace SortExtensions.Sorters
                     return new BubbleSorter();
                 case SortingAlgorithm.SelectionSort:
                     return new SelectionSorter();
+                case SortingAlgorithm.InsertionSort:
+                    return new InsertionSorter();
                 default:
                     throw new ArgumentOutOfRangeException(nameof(sortingAlgorithm), sortingAlgorithm,
                         "Algorithm is not supported.");

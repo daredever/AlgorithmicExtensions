@@ -5,7 +5,7 @@ using System.Linq;
 namespace SortExtensions.Sorters.Default
 {
     /// <summary>
-    /// Sorts the elements of a zero-based collection with the default .NET implementation of Array.Sort Method.
+    /// Sorts the elements of a generic zero-based collection with the default .NET implementation of Array.Sort Method.
     /// </summary>
     /// <remarks>
     /// Worst-case performance O(n log n).

@@ -1,5 +1,6 @@
 using SortExtensions.Sorters.BubbleSort;
 using SortExtensions.Sorters.Default;
+using SortExtensions.Sorters.InsertionSort;
 using SortExtensions.Sorters.SelectionSort;
 
 namespace SortExtensions
@@ -7,7 +8,7 @@ namespace SortExtensions
     public enum SortingAlgorithm
     {
         /// <summary>
-        /// Sorts the elements of a zero-based collection with the default .NET implementation of Array.Sort Method.
+        /// Sorts the elements of a generic zero-based collection with the default .NET implementation of Array.Sort Method.
         /// </summary>
         /// <remarks> 
         /// Worst-case performance O(n log n).
@@ -17,7 +18,7 @@ namespace SortExtensions
         Default,
 
         /// <summary>
-        /// Sorts the elements of a zero-based collection with the Bubble Sort Algorithm.
+        /// Sorts the elements of a generic zero-based collection with the Bubble Sort Algorithm.
         /// </summary>
         /// <remarks>
         /// Worst-case performance O(n^2).
@@ -27,7 +28,7 @@ namespace SortExtensions
         BubbleSort,
 
         /// <summary>
-        /// Sorts the elements of a zero-based collection with the Selection Sort Algorithm.
+        /// Sorts the elements of a generic zero-based collection with the Selection Sort Algorithm.
         /// </summary>
         /// <remarks>
         /// Worst-case performance O(n^2).
@@ -35,5 +36,15 @@ namespace SortExtensions
         /// To learn more <see cref="SelectionSorter"/>.
         /// </remarks>
         SelectionSort,
+        
+        /// <summary>
+        /// The Insertion Sort Algorithm for a generic zero-based collection.
+        /// </summary>
+        /// <remarks>
+        /// Worst-case performance O(n^2).
+        /// Best-case performance O(n).
+        /// To learn more <see cref="InsertionSorter"/>
+        /// </remarks>
+        InsertionSort,
     }
 }
