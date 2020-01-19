@@ -8,21 +8,47 @@ namespace HelpfulExtensions
 {
     public static class EnumerableExtensions
     {
-        public static Task ForEachAsync<T>(this IEnumerable<T> list, Func<T, Task> function)
+        /// <summary>
+        /// Performs the specified delegate on each element of the specified collection. 
+        /// For each asynchronously.
+        /// </summary>
+        /// <param name="source">Source collection</param>
+        /// <param name="function">Delegate</param>
+        /// <typeparam name="T">Input type</typeparam>
+        /// <returns>Task</returns>
+        public static Task ForEachAsync<T>(this IEnumerable<T> source, Func<T, Task> function)
         {
-            return Task.WhenAll(list.Select(function));
+            var tasks = source.Select(function);
+            return Task.WhenAll(tasks);
         }
 
-        public static async Task<IEnumerable<TOut>> ForEachAsync<TIn, TOut>(this IEnumerable<TIn> list,
+        /// <summary>
+        /// Performs the specified delegate on each element of the specified collection.
+        /// </summary>
+        /// <param name="source">Source collection</param>
+        /// <param name="function">Delegate</param>
+        /// <typeparam name="TIn">Input type</typeparam>
+        /// <typeparam name="TOut">Output type</typeparam>
+        /// <returns>Collection with results</returns>
+        public static async Task<IEnumerable<TOut>> ForEachAsync<TIn, TOut>(this IEnumerable<TIn> source,
             Func<TIn, Task<TOut>> function)
         {
-            var result = await Task.WhenAll(list.Select(function))
-                .ConfigureAwait(false);
+            var tasks = source.Select(function);
+            var result = await Task.WhenAll(tasks).ConfigureAwait(false);
 
             return result.AsEnumerable();
         }
 
-        public static Task ForEachAsync<T>(this IEnumerable<T> source, int partitionCount, Func<T, Task> body)
+        /// <summary>
+        /// Performs the specified delegate on each element of the specified collection. 
+        /// For each asynchronously.
+        /// </summary>
+        /// <param name="source">Source collection</param>
+        /// <param name="partitionCount">Degree of parallelism</param>
+        /// <param name="function">Delegate</param>
+        /// <typeparam name="T">Input type</typeparam>
+        /// <returns>Task</returns>
+        public static Task ForEachAsync<T>(this IEnumerable<T> source, int partitionCount, Func<T, Task> function)
         {
             var partitions = Partitioner.Create(source).GetPartitions(partitionCount);
             var tasks = partitions.Select(partition =>
@@ -32,7 +58,7 @@ namespace HelpfulExtensions
                     {
                         while (partition.MoveNext())
                         {
-                            await body(partition.Current).ConfigureAwait(false);
+                            await function(partition.Current).ConfigureAwait(false);
                         }
                     }
                 }));
@@ -40,8 +66,17 @@ namespace HelpfulExtensions
             return Task.WhenAll(tasks);
         }
 
+        /// <summary>
+        /// Performs the specified delegate on each element of the specified collection.
+        /// </summary>
+        /// <param name="source">Source collection</param>
+        /// <param name="partitionCount">Degree of parallelism</param>
+        /// <param name="function">Delegate</param>
+        /// <typeparam name="TIn">Input type</typeparam>
+        /// <typeparam name="TOut">Output type</typeparam>
+        /// <returns>Collection with results</returns>
         public static async Task<IEnumerable<TOut>> ForEachAsync<TIn, TOut>(this IEnumerable<TIn> source,
-            int partitionCount, Func<TIn, Task<TOut>> body)
+            int partitionCount, Func<TIn, Task<TOut>> function)
         {
             var partitions = Partitioner.Create(source).GetPartitions(partitionCount);
             var tasks = partitions.Select(partition =>
@@ -52,7 +87,7 @@ namespace HelpfulExtensions
                     {
                         while (partition.MoveNext())
                         {
-                            var result = await body(partition.Current).ConfigureAwait(false);
+                            var result = await function(partition.Current).ConfigureAwait(false);
                             results.Add(result);
                         }
                     }
@@ -60,14 +95,8 @@ namespace HelpfulExtensions
                     return results;
                 }));
 
-            var allTasksResults = await Task.WhenAll(tasks).ConfigureAwait(false);
-            var outputResult = new List<TOut>();
-            foreach (var taskResults in allTasksResults)
-            {
-                outputResult.AddRange(taskResults);
-            }
-
-            return outputResult.AsEnumerable();
+            var tasksResults = await Task.WhenAll(tasks).ConfigureAwait(false);
+            return tasksResults.SelectMany(taskResults => taskResults);
         }
     }
 }
