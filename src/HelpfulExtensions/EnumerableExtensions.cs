@@ -9,7 +9,7 @@ namespace HelpfulExtensions
     public static class EnumerableExtensions
     {
         /// <summary>
-        /// Performs the specified delegate on each element of the specified collection. 
+        /// Performs the specified delegate on each element of a collection. 
         /// For each asynchronously.
         /// </summary>
         /// <param name="source">Source collection</param>
@@ -23,7 +23,7 @@ namespace HelpfulExtensions
         }
 
         /// <summary>
-        /// Performs the specified delegate on each element of the specified collection.
+        /// Performs the specified delegate on each element of a collection.
         /// </summary>
         /// <param name="source">Source collection</param>
         /// <param name="function">Delegate</param>
@@ -40,7 +40,7 @@ namespace HelpfulExtensions
         }
 
         /// <summary>
-        /// Performs the specified delegate on each element of the specified collection. 
+        /// Performs the specified delegate on each element of a collection. 
         /// For each asynchronously.
         /// </summary>
         /// <param name="source">Source collection</param>
@@ -67,7 +67,7 @@ namespace HelpfulExtensions
         }
 
         /// <summary>
-        /// Performs the specified delegate on each element of the specified collection.
+        /// Performs the specified delegate on each element of a collection.
         /// </summary>
         /// <param name="source">Source collection</param>
         /// <param name="partitionCount">Degree of parallelism</param>
