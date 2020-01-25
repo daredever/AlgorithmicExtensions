@@ -29,11 +29,11 @@ namespace SortExtensions.Sorters.InsertionSort
             var lastIndex = index + length - 1;
             for (var baseIndex = index + 1; baseIndex <= lastIndex; baseIndex++)
             {
-                var current = baseIndex;
-                while (current > index && comparer.Compare(sortedData[current], sortedData[current - 1]) < 0)
+                for (var current = baseIndex;
+                    current > index && comparer.Compare(sortedData[current], sortedData[current - 1]) < 0;
+                    current--)
                 {
                     Swap(sortedData, current, current - 1);
-                    current--;
                 }
             }
 
