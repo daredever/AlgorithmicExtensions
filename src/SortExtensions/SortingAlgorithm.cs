@@ -1,7 +1,4 @@
-using SortExtensions.Sorters.BubbleSort;
-using SortExtensions.Sorters.Default;
-using SortExtensions.Sorters.InsertionSort;
-using SortExtensions.Sorters.SelectionSort;
+using SortExtensions.Sorters.Implementations;
 
 namespace SortExtensions
 {
@@ -46,5 +43,15 @@ namespace SortExtensions
         /// To learn more <see cref="InsertionSorter"/>
         /// </remarks>
         InsertionSort,
+        
+        /// <summary>
+        /// The Merge Sort Algorithm for a generic zero-based collection.
+        /// </summary>
+        /// <remarks>
+        /// Worst-case performance O(n log n).
+        /// Best-case performance O(n).
+        /// To learn more <see cref="MergeSorter"/>
+        /// </remarks>
+        MergeSort,
     }
 }

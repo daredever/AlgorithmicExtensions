@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SortExtensions.Sorters;
-using SortExtensions.Sorters.Default;
+using SortExtensions.Sorters.Implementations;
 
 namespace SortExtensions.Tests.TestDataGenerator
 {

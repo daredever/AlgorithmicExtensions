@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 using static SortExtensions.Helpers.SwapHelper;
 
-namespace SortExtensions.Sorters.SelectionSort
+namespace SortExtensions.Sorters.Implementations
 {
     /// <summary>
     /// The Selection Sort Algorithm for a generic zero-based collection.
@@ -12,21 +11,10 @@ namespace SortExtensions.Sorters.SelectionSort
     /// Best-case performance O(n^2).
     /// To learn more, see https://en.wikipedia.org/wiki/Selection_sort
     /// </remarks>
-    public sealed class SelectionSorter : ISorter
+    public sealed class SelectionSorter : Sorter
     {
-        public IList<T> Sort<T>(IList<T> source, int index, int length, IComparer<T> comparer)
+        protected override void SortInternal<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
         {
-            // Copy input data.
-            var sortedData = new T[source.Count];
-            source.CopyTo(sortedData, 0);
-
-            // Do not need sorting empty section or section with only one element.
-            if (length <= 1)
-            {
-                return sortedData;
-            }
-
-            // The Selection Sort Algorithm core.
             // For each iteration increase first index, cause it's already sorted.
             var lastIndex = index + length - 1;
             for (var firstIndex = index; firstIndex < lastIndex; firstIndex++)
@@ -36,7 +24,7 @@ namespace SortExtensions.Sorters.SelectionSort
                 var minIndex = firstIndex;
                 for (var current = firstIndex + 1; current <= lastIndex; current++)
                 {
-                    if (comparer.Compare(sortedData[current], sortedData[minIndex]) < 0)
+                    if (comparer.Compare(sortingData[current], sortingData[minIndex]) < 0)
                     {
                         minIndex = current;
                     }
@@ -44,11 +32,9 @@ namespace SortExtensions.Sorters.SelectionSort
 
                 if (firstIndex != minIndex)
                 {
-                    Swap(sortedData, firstIndex, minIndex);
+                    Swap(sortingData, firstIndex, minIndex);
                 }
             }
-
-            return sortedData;
         }
     }
 }

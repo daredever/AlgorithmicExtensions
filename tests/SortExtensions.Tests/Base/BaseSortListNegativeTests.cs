@@ -7,11 +7,8 @@ using Xunit;
 
 namespace SortExtensions.Tests.Base
 {
-    public abstract class BaseSortListNegativeTests
+    public abstract class BaseSortListNegativeTests: BaseSortTest
     {
-        public abstract SortingAlgorithm SortingAlgorithm { get; }
-        public abstract ISorter Sorter { get; }
-        
         [Theory]
         [ClassData(typeof(NegativeFullSortDataGenerator))]
         public void Sort_IList_Full_Is_Not_Valid<T>(T[] income, int index, int length, string expectedMessage)

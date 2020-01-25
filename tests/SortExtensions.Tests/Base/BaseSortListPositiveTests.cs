@@ -7,11 +7,8 @@ using Xunit;
 
 namespace SortExtensions.Tests.Base
 {
-    public abstract class BaseSortListPositiveTests
+    public abstract class BaseSortListPositiveTests: BaseSortTest
     {
-        public abstract SortingAlgorithm SortingAlgorithm { get; }
-        public abstract ISorter Sorter { get; }
-        
         [Theory]
         [ClassData(typeof(PositiveRangeSortDataGenerator))]
         public void Sort_IList_Range_Is_Valid<T>(T[] income, int index, int length, T[] expected) where T : IComparable

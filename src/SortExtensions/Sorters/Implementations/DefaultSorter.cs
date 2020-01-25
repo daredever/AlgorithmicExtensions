@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace SortExtensions.Sorters.Default
+namespace SortExtensions.Sorters.Implementations
 {
     /// <summary>
     /// Sorts the elements of a generic zero-based collection with the default .NET implementation of Array.Sort Method.
@@ -12,13 +11,11 @@ namespace SortExtensions.Sorters.Default
     /// Best-case performance O(n).
     /// To learn more, see https://docs.microsoft.com/en-us/dotnet/api/system.array.sort?view=netcore-3.1
     /// </remarks>
-    public sealed class DefaultSorter: ISorter
+    public sealed class DefaultSorter : Sorter
     {
-        public IList<T> Sort<T>(IList<T> source, int index, int length, IComparer<T> comparer)
+        protected override void SortInternal<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
         {
-            var array = source.ToArray();
-            Array.Sort(array, index, length, comparer);
-            return array;
+            Array.Sort(sortingData, index, length, comparer);
         }
     }
 }
