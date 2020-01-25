@@ -1,17 +1,13 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using SortExtensions.Sorters;
 using SortExtensions.Tests.TestDataGenerator;
 using Xunit;
 
 namespace SortExtensions.Tests.Base
 {
-    public abstract class BaseSortEnumerablePositiveTests
-    {
-        public abstract SortingAlgorithm SortingAlgorithm { get; }
-        public abstract ISorter Sorter { get; }
-        
+    public abstract class BaseSortEnumerablePositiveTests:BaseSortTest
+    {   
         [Theory]
         [ClassData(typeof(PositiveRangeSortDataGenerator))]
         public void Sort_IEnumerable_Range_Is_Valid<T>(T[] income, int index, int length, T[] expected)
@@ -42,7 +38,7 @@ namespace SortExtensions.Tests.Base
             sorted.Should().Equal(expected);
         }
 
-        private IEnumerable<T> GetSource<T>(T[] income)
+        private IEnumerable<T> GetSource<T>(IEnumerable<T> income)
         {
             foreach (var item in income)
             {
