@@ -7,6 +7,6 @@ namespace SortExtensions.Tests.Sorters.MergeSort
     public class MergeSortEnumerablePositiveTests : BaseSortEnumerablePositiveTests
     {
         public override SortingAlgorithm SortingAlgorithm => SortingAlgorithm.MergeSort;
-        public override Sorter Sorter => new MergeSorter();
+        public override ISorter Sorter => new MergeSorter();
     }
 }

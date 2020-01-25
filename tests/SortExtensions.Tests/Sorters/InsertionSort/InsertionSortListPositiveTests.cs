@@ -7,6 +7,6 @@ namespace SortExtensions.Tests.Sorters.InsertionSort
     public class InsertionSortListPositiveTests : BaseSortListPositiveTests
     {
         public override SortingAlgorithm SortingAlgorithm => SortingAlgorithm.InsertionSort;
-        public override Sorter Sorter => new InsertionSorter();
+        public override ISorter Sorter => new InsertionSorter();
     }
 }

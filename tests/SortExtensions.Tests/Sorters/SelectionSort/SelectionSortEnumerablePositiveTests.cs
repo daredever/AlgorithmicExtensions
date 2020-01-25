@@ -7,6 +7,6 @@ namespace SortExtensions.Tests.Sorters.SelectionSort
     public class SelectionSortEnumerablePositiveTests : BaseSortEnumerablePositiveTests
     {
         public override SortingAlgorithm SortingAlgorithm => SortingAlgorithm.SelectionSort;
-        public override Sorter Sorter => new SelectionSorter();
+        public override ISorter Sorter => new SelectionSorter();
     }
 }

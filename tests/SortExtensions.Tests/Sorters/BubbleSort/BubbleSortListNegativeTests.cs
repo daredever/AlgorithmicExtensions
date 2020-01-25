@@ -7,6 +7,6 @@ namespace SortExtensions.Tests.Sorters.BubbleSort
     public class BubbleSortListNegativeTests : BaseSortListNegativeTests
     {
         public override SortingAlgorithm SortingAlgorithm => SortingAlgorithm.BubbleSort;
-        public override Sorter Sorter => new BubbleSorter();
+        public override ISorter Sorter => new BubbleSorter();
     }
 }

@@ -5,6 +5,6 @@ namespace SortExtensions.Tests.Base
     public abstract class BaseSortTest
     {
         public abstract SortingAlgorithm SortingAlgorithm { get; }
-        public abstract Sorter Sorter { get; }
+        public abstract ISorter Sorter { get; }
     }
 }

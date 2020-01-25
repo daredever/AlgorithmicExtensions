@@ -7,6 +7,6 @@ namespace SortExtensions.Tests.Sorters.SelectionSort
     public class SelectionSortListNegativeTests : BaseSortListNegativeTests
     {
         public override SortingAlgorithm SortingAlgorithm => SortingAlgorithm.SelectionSort;
-        public override Sorter Sorter => new SelectionSorter();
+        public override ISorter Sorter => new SelectionSorter();
     }
 }
