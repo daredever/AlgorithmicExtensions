@@ -18,7 +18,7 @@ namespace SortExtensions.Tests.Base
             where T : IComparable
         {
             // Arrange
-            var source = (IEnumerable<T>) income;
+            var source = GetSource(income);
 
             // Act
             var sorted = source.Sort(index, length, SortingAlgorithm);
@@ -33,13 +33,21 @@ namespace SortExtensions.Tests.Base
             where T : IComparable
         {
             // Arrange
-            var source = (IEnumerable<T>) income;
+            var source = GetSource(income);
 
             // Act
             var sorted = source.Sort(index, length, Sorter);
 
             // Assert
             sorted.Should().Equal(expected);
+        }
+
+        private IEnumerable<T> GetSource<T>(T[] income)
+        {
+            foreach (var item in income)
+            {
+                yield return item;
+            }
         }
     }
 }
