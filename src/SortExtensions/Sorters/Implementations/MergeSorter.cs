@@ -33,36 +33,33 @@ namespace SortExtensions.Sorters.Implementations
 
         private void Merge<T>(T[] sortingData, int low, int middle, int high, IComparer<T> comparer)
         {
-            var leftSortedPart = new Queue<T>();
-            var rightSortedPart = new Queue<T>();
-
-            // Fill sorted data.
-            for (var i = low; i <= middle; i++)
+            // Prepare left sorted part for merging.
+            var leftSortedPart = new Queue<T>(middle - low + 1);
+            for (var index = low; index <= middle; index++)
             {
-                leftSortedPart.Enqueue(sortingData[i]);
+                leftSortedPart.Enqueue(sortingData[index]);
             }
 
-            for (var i = middle + 1; i <= high; i++)
+            // Prepare right sorted part for merging.
+            var rightSortedPart = new Queue<T>(high - middle);
+            for (var index = middle + 1; index <= high; index++)
             {
-                rightSortedPart.Enqueue(sortingData[i]);
+                rightSortedPart.Enqueue(sortingData[index]);
             }
 
             // Merge sorted data and update sorting collection.
-            var index = low;
+            var current = low;
             while (leftSortedPart.TryPeek(out var leftElement) & rightSortedPart.TryPeek(out var rightElement))
             {
                 var rightElementIsGreater = comparer.Compare(leftElement, rightElement) > 0;
-                sortingData[index++] = rightElementIsGreater ? rightSortedPart.Dequeue() : leftSortedPart.Dequeue();
+                sortingData[current++] = rightElementIsGreater ? rightSortedPart.Dequeue() : leftSortedPart.Dequeue();
             }
 
-            while (leftSortedPart.Any())
+            // Update sorting collection by residue.
+            var residue = leftSortedPart.Concat(rightSortedPart);
+            foreach (var element in residue)
             {
-                sortingData[index++] = leftSortedPart.Dequeue();
-            }
-
-            while (rightSortedPart.Any())
-            {
-                sortingData[index++] = rightSortedPart.Dequeue();
+                sortingData[current++] = element;
             }
         }
     }
