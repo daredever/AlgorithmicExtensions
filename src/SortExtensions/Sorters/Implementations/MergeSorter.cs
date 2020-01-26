@@ -33,40 +33,36 @@ namespace SortExtensions.Sorters.Implementations
 
         private void Merge<T>(T[] sortingData, int low, int middle, int high, IComparer<T> comparer)
         {
-            var leftQueue = new Queue<T>();
-            var rightQueue = new Queue<T>();
+            var leftSortedPart = new Queue<T>();
+            var rightSortedPart = new Queue<T>();
 
+            // Fill sorted data.
             for (var i = low; i <= middle; i++)
             {
-                leftQueue.Enqueue(sortingData[i]);
+                leftSortedPart.Enqueue(sortingData[i]);
             }
 
             for (var i = middle + 1; i <= high; i++)
             {
-                rightQueue.Enqueue(sortingData[i]);
+                rightSortedPart.Enqueue(sortingData[i]);
             }
 
+            // Merge sorted data and update sorting collection.
             var index = low;
-            while (leftQueue.Any() & rightQueue.Any())
+            while (leftSortedPart.TryPeek(out var leftElement) & rightSortedPart.TryPeek(out var rightElement))
             {
-                if (comparer.Compare(leftQueue.Peek(), rightQueue.Peek()) > 0)
-                {
-                    sortingData[index++] = rightQueue.Dequeue();
-                }
-                else
-                {
-                    sortingData[index++] = leftQueue.Dequeue();
-                }
+                var rightElementIsGreater = comparer.Compare(leftElement, rightElement) > 0;
+                sortingData[index++] = rightElementIsGreater ? rightSortedPart.Dequeue() : leftSortedPart.Dequeue();
             }
 
-            while (leftQueue.Any())
+            while (leftSortedPart.Any())
             {
-                sortingData[index++] = leftQueue.Dequeue();
+                sortingData[index++] = leftSortedPart.Dequeue();
             }
 
-            while (rightQueue.Any())
+            while (rightSortedPart.Any())
             {
-                sortingData[index++] = rightQueue.Dequeue();
+                sortingData[index++] = rightSortedPart.Dequeue();
             }
         }
     }
