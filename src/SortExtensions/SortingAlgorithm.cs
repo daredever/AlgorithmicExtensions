@@ -5,52 +5,52 @@ namespace SortExtensions
     public enum SortingAlgorithm
     {
         /// <summary>
-        /// Sorts the elements of a generic zero-based collection with the default .NET implementation of Array.Sort Method.
+        /// Default .NET implementation of Array.Sort Method for a generic zero-based collection.
         /// </summary>
         /// <remarks> 
         /// Worst-case performance O(n log n).
         /// Best-case performance O(n).
-        /// To learn more <see cref="DefaultSorter"/>.
+        /// To learn more, see <see cref="DefaultSorter"/>.
         /// </remarks>
         Default,
 
         /// <summary>
-        /// Sorts the elements of a generic zero-based collection with the Bubble Sort Algorithm.
+        /// The Bubble Sort Algorithm for a generic zero-based collection.
         /// </summary>
         /// <remarks>
         /// Worst-case performance O(n^2).
         /// Best-case performance O(n).
-        /// To learn more <see cref="BubbleSorter"/>.
+        /// To learn more, see <see cref="BubbleSorter"/>.
         /// </remarks>
         BubbleSort,
 
         /// <summary>
-        /// Sorts the elements of a generic zero-based collection with the Selection Sort Algorithm.
+        /// The Selection Sort Algorithm for a generic zero-based collection.
         /// </summary>
         /// <remarks>
         /// Worst-case performance O(n^2).
         /// Best-case performance O(n^2).
-        /// To learn more <see cref="SelectionSorter"/>.
+        /// To learn more, see <see cref="SelectionSorter"/>.
         /// </remarks>
         SelectionSort,
-        
+
         /// <summary>
         /// The Insertion Sort Algorithm for a generic zero-based collection.
         /// </summary>
         /// <remarks>
         /// Worst-case performance O(n^2).
         /// Best-case performance O(n).
-        /// To learn more <see cref="InsertionSorter"/>
+        /// To learn more, see <see cref="InsertionSorter"/>
         /// </remarks>
         InsertionSort,
-        
+
         /// <summary>
         /// The Merge Sort Algorithm for a generic zero-based collection.
         /// </summary>
         /// <remarks>
         /// Worst-case performance O(n log n).
         /// Best-case performance O(n).
-        /// To learn more <see cref="MergeSorter"/>
+        /// To learn more, see <see cref="MergeSorter"/>
         /// </remarks>
         MergeSort,
     }

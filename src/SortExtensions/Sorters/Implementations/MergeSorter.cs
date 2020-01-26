@@ -4,7 +4,7 @@ using System.Linq;
 namespace SortExtensions.Sorters.Implementations
 {
     /// <summary>
-    /// The Merge Sort Algorithm for a generic zero-based collection.
+    /// The Merge Sort Algorithm implementation for a generic zero-based collection.
     /// </summary>
     /// <remarks>
     /// Worst-case performance O(n log n).

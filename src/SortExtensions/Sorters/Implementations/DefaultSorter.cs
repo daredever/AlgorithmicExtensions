@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace SortExtensions.Sorters.Implementations
 {
     /// <summary>
-    /// Sorts the elements of a generic zero-based collection with the default .NET implementation of Array.Sort Method.
+    /// Default .NET implementation of Array.Sort Method for a generic zero-based collection.
     /// </summary>
     /// <remarks>
     /// Worst-case performance O(n log n).

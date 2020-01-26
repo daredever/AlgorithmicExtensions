@@ -4,7 +4,7 @@ using static SortExtensions.Helpers.SwapHelper;
 namespace SortExtensions.Sorters.Implementations
 {
     /// <summary>
-    /// The Insertion Sort Algorithm for a generic zero-based collection.
+    /// The Insertion Sort Algorithm implementation for a generic zero-based collection.
     /// </summary>
     /// <remarks>
     /// Worst-case performance O(n^2).

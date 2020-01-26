@@ -4,7 +4,7 @@ using static SortExtensions.Helpers.SwapHelper;
 namespace SortExtensions.Sorters.Implementations
 {
     /// <summary>
-    /// The Bubble Sort Algorithm for a generic zero-based collection.
+    /// The Bubble Sort Algorithm implementation for a generic zero-based collection.
     /// </summary>
     /// <remarks>
     /// Worst-case performance O(n^2).
