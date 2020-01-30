@@ -13,7 +13,7 @@ namespace SortExtensions.Sorters.Implementations
     /// </remarks>
     public sealed class DefaultSorter : Sorter
     {
-        protected override void SortInternal<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
+        protected override void SortCore<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
         {
             Array.Sort(sortingData, index, length, comparer);
         }

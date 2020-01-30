@@ -13,7 +13,7 @@ namespace SortExtensions.Sorters.Implementations
     /// </remarks>
     public class InsertionSorter : Sorter
     {
-        protected override void SortInternal<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
+        protected override void SortCore<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
         {
             var lastIndex = index + length - 1;
             for (var baseIndex = index + 1; baseIndex <= lastIndex; baseIndex++)

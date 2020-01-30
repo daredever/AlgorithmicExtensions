@@ -13,7 +13,7 @@ namespace SortExtensions.Sorters.Implementations
     /// </remarks>
     public class MergeSorter : Sorter
     {
-        protected override void SortInternal<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
+        protected override void SortCore<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
         {
             MergeSort(sortingData, index, index + length - 1, comparer);
         }

@@ -20,11 +20,11 @@ namespace SortExtensions.Sorters
             }
 
             //A Sort Algorithm core.
-            SortInternal(sortingData, index, length, comparer);
+            SortCore(sortingData, index, length, comparer);
 
             return sortingData;
         }
 
-        protected abstract void SortInternal<T>(T[] sortingData, int index, int length, IComparer<T> comparer);
+        protected abstract void SortCore<T>(T[] sortingData, int index, int length, IComparer<T> comparer);
     }
 }

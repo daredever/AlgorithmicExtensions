@@ -13,7 +13,7 @@ namespace SortExtensions.Sorters.Implementations
     /// </remarks>
     public sealed class SelectionSorter : Sorter
     {
-        protected override void SortInternal<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
+        protected override void SortCore<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
         {
             // For each iteration increase first index, cause it's already sorted.
             var lastIndex = index + length - 1;

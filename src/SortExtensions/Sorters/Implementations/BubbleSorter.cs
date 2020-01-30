@@ -13,7 +13,7 @@ namespace SortExtensions.Sorters.Implementations
     /// </remarks>
     public sealed class BubbleSorter : Sorter
     {
-        protected override void SortInternal<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
+        protected override void SortCore<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
         {
             // For each iteration decrease last index, cause it's already sorted.
             var isSorted = true;
