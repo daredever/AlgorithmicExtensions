@@ -10,7 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\SortExtensions\SortExtensions.csproj" />
+      <ProjectReference Include="..\..\src\SortExtensions\SortExtensions.csproj" />
     </ItemGroup>
 
 </Project>
