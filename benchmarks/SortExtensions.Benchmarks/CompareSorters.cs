@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using BenchmarkDotNet.Attributes;
-using SortExtensions.Sorters;
-using SortExtensions.Sorters.Implementations;
 
 namespace SortExtensions.Benchmarks
 {
@@ -15,10 +13,12 @@ namespace SortExtensions.Benchmarks
 
 		public CompareSorters()
 		{
+			Console.WriteLine("create comparer");
 			_data = new int[Length];
+			var random = new Random(42);
 			for (var i = Index; i < _data.Length; i++)
 			{
-				_data[i] = new Random(42).Next(-1000, 1000);
+				_data[i] = random.Next(-1000, 1000);
 			}
 		}
 
@@ -27,7 +27,7 @@ namespace SortExtensions.Benchmarks
 
 		[Benchmark]
 		public IList<int> InsertionSort() => _data.Sort(Index, Length, SortingAlgorithm.InsertionSort);
-
+		
 		[Benchmark]
 		public IList<int> MergeSort() => _data.Sort(Index, Length, SortingAlgorithm.MergeSort);
 
@@ -40,7 +40,7 @@ namespace SortExtensions.Benchmarks
 			var copyData = new int[_data.Length];
 			_data.CopyTo(copyData, 0);
 			Array.Sort(copyData, Index, Length);
-
+		
 			return copyData;
 		}
 	}
