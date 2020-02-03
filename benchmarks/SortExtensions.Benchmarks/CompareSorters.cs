@@ -13,7 +13,6 @@ namespace SortExtensions.Benchmarks
 
 		public CompareSorters()
 		{
-			Console.WriteLine("create comparer");
 			_data = new int[Length];
 			var random = new Random(42);
 			for (var i = Index; i < _data.Length; i++)
