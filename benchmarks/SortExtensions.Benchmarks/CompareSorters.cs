@@ -13,13 +13,6 @@ namespace SortExtensions.Benchmarks
 		private const int Index = 0;
 		private const int Length = 10000;
 
-		private readonly IComparer<int> _comparer = Comparer<int>.Default;
-
-		private readonly ISorter _bubbleSorter = new BubbleSorter();
-		private readonly ISorter _insertionSorter = new InsertionSorter();
-		private readonly ISorter _mergeSorter = new MergeSorter();
-		private readonly ISorter _selectionSorter = new SelectionSorter();
-
 		public CompareSorters()
 		{
 			_data = new int[Length];
@@ -30,23 +23,23 @@ namespace SortExtensions.Benchmarks
 		}
 
 		[Benchmark]
-		public IList<int> BubbleSort() => _bubbleSorter.Sort(_data, Index, Length, _comparer);
+		public IList<int> BubbleSort() => _data.Sort(Index, Length, SortingAlgorithm.BubbleSort);
 
 		[Benchmark]
-		public IList<int> InsertionSort() => _insertionSorter.Sort(_data, Index, Length, _comparer);
+		public IList<int> InsertionSort() => _data.Sort(Index, Length, SortingAlgorithm.InsertionSort);
 
 		[Benchmark]
-		public IList<int> MergeSort() => _mergeSorter.Sort(_data, Index, Length, _comparer);
+		public IList<int> MergeSort() => _data.Sort(Index, Length, SortingAlgorithm.MergeSort);
 
 		[Benchmark]
-		public IList<int> SelectionSort() => _selectionSorter.Sort(_data, Index, Length, _comparer);
+		public IList<int> SelectionSort() => _data.Sort(Index, Length, SortingAlgorithm.SelectionSort);
 
 		[Benchmark]
 		public IList<int> DefaultSort()
 		{
 			var copyData = new int[_data.Length];
 			_data.CopyTo(copyData, 0);
-			Array.Sort(copyData, Index, Length, _comparer);
+			Array.Sort(copyData, Index, Length);
 
 			return copyData;
 		}
