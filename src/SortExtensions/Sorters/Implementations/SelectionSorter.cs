@@ -24,7 +24,7 @@ namespace SortExtensions.Sorters.Implementations
 				var minIndex = firstIndex;
 				for (var current = firstIndex + 1; current < sortingData.Length; current++)
 				{
-					if (comparer.Compare(sortingData[current], sortingData[minIndex]) < 0)
+					if (comparer.Compare(sortingData[minIndex], sortingData[current]) > 0)
 					{
 						minIndex = current;
 					}
