@@ -5,7 +5,7 @@ using static SortExtensions.Helpers.ValidationHelper;
 namespace SortExtensions.Helpers
 {
     internal static class SwapHelper
-    {
+    {   
         /// <summary>
         /// Swap two elements in collection.
         /// </summary>
@@ -13,11 +13,8 @@ namespace SortExtensions.Helpers
         /// <param name="sourceIndex">First item index</param>
         /// <param name="destinationIndex">Second item index</param>
         /// <typeparam name="T">Generic type</typeparam>
-        /// <exception cref="ArgumentNullException">source is null</exception>
-        internal static void Swap<T>(IList<T> source, int sourceIndex, int destinationIndex)
+        internal static void Swap<T>(Span<T> source, int sourceIndex, int destinationIndex)
         {
-            CheckSource(source);
-
             var temp = source[sourceIndex];
             source[sourceIndex] = source[destinationIndex];
             source[destinationIndex] = temp;

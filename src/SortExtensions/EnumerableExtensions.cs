@@ -28,7 +28,7 @@ namespace SortExtensions
         /// <exception cref="ArgumentOutOfRangeException">collection bounds less than section</exception>
         /// <exception cref="ArgumentOutOfRangeException">wrong sorting algorithm specified</exception>
         public static IEnumerable<T> Sort<T>(this IEnumerable<T> source, int index, int length,
-            SortingAlgorithm sortingAlgorithm = SortingAlgorithm.Default, IComparer<T> comparer = null)
+            SortingAlgorithm sortingAlgorithm, IComparer<T> comparer = null)
             where T : IComparable
         {
             CheckSource(source);

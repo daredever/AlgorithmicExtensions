@@ -26,7 +26,7 @@ namespace SortExtensions
         /// <exception cref="ArgumentOutOfRangeException">collection bounds less than section</exception>
         /// <exception cref="ArgumentOutOfRangeException">wrong sorting algorithm specified</exception>
         public static IList<T> Sort<T>(this IList<T> source,
-            SortingAlgorithm sortingAlgorithm = SortingAlgorithm.Default, IComparer<T> comparer = null)
+            SortingAlgorithm sortingAlgorithm, IComparer<T> comparer = null)
             where T : IComparable
         {
             CheckSource(source);
@@ -78,7 +78,7 @@ namespace SortExtensions
         /// <exception cref="ArgumentOutOfRangeException">collection bounds less than section</exception>
         /// <exception cref="ArgumentOutOfRangeException">wrong sorting algorithm specified</exception>
         public static IList<T> Sort<T>(this IList<T> source, int index, int length,
-            SortingAlgorithm sortingAlgorithm = SortingAlgorithm.Default, IComparer<T> comparer = null)
+            SortingAlgorithm sortingAlgorithm, IComparer<T> comparer = null)
             where T : IComparable
         {
             CheckSource(source);

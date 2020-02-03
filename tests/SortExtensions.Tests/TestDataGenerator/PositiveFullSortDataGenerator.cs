@@ -1,51 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using SortExtensions.Sorters;
-using SortExtensions.Sorters.Implementations;
 
 namespace SortExtensions.Tests.TestDataGenerator
 {
     public class PositiveFullSortDataGenerator : IEnumerable<object[]>
     {
-        readonly ISorter _defaultSorter = new DefaultSorter();
-        readonly IComparer<int> _comparer = Comparer<int>.Default;
+        private readonly IComparer<int> _comparer = Comparer<int>.Default;
 
         public IEnumerator<object[]> GetEnumerator()
         {
-            int[] source, expected;
+            int[] source;
 
             source = new[] {1, 1, 1, 1, 1, 1};
-            expected = _defaultSorter.Sort(source, 0, source.Length, _comparer).ToArray();
-            yield return new object[] {source, expected};
+            yield return new object[] {source, GetSortedArray(source)};
 
             source = new[] {5, 1, 3, 4, 2, 0};
-            expected = _defaultSorter.Sort(source, 0, source.Length, _comparer).ToArray();
-            yield return new object[] {source, expected};
+            yield return new object[] {source, GetSortedArray(source)};
 
             source = new[] {5, 1, 3, 4, 2, 100};
-            expected = _defaultSorter.Sort(source, 0, source.Length, _comparer).ToArray();
-            yield return new object[] {source, expected};
+            yield return new object[] {source, GetSortedArray(source)};
 
             source = new[] {1000, 5, 1, 3, 4, 2, 100};
-            expected = _defaultSorter.Sort(source, 0, source.Length, _comparer).ToArray();
-            yield return new object[] {source, expected};
+            yield return new object[] {source, GetSortedArray(source)};
 
             source = new int[] { };
-            expected = _defaultSorter.Sort(source, 0, source.Length, _comparer).ToArray();
-            yield return new object[] {source, expected};
+            yield return new object[] {source, GetSortedArray(source)};
 
             source = new[] {1000};
-            expected = _defaultSorter.Sort(source, 0, source.Length, _comparer).ToArray();
-            yield return new object[] {source, expected};
+            yield return new object[] {source, GetSortedArray(source)};
 
             source = new[] {1, 2};
-            expected = _defaultSorter.Sort(source, 0, source.Length, _comparer).ToArray();
-            yield return new object[] {source, expected};
+            yield return new object[] {source, GetSortedArray(source)};
 
             source = new[] {1, -2, 3};
-            expected = _defaultSorter.Sort(source, 0, source.Length, _comparer).ToArray();
-            yield return new object[] {source, expected};
+            yield return new object[] {source, GetSortedArray(source)};
+        }
+
+        private int[] GetSortedArray(int[] source)
+        {
+            var expected = new int[source.Length];
+            source.CopyTo(expected, 0);
+            Array.Sort(expected, 0, source.Length, _comparer);
+
+            return expected;
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

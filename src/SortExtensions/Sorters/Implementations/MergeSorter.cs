@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,12 +14,12 @@ namespace SortExtensions.Sorters.Implementations
     /// </remarks>
     public class MergeSorter : Sorter
     {
-        protected override void SortCore<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
+        protected override void SortCore<T>(Span<T> sortingData, IComparer<T> comparer)
         {
-            MergeSort(sortingData, index, index + length - 1, comparer);
+            MergeSort(sortingData, 0, sortingData.Length - 1, comparer);
         }
 
-        private void MergeSort<T>(T[] sortingData, int low, int high, IComparer<T> comparer)
+        private void MergeSort<T>(Span<T> sortingData, int low, int high, IComparer<T> comparer)
         {
             if (low >= high)
             {
@@ -31,7 +32,7 @@ namespace SortExtensions.Sorters.Implementations
             Merge(sortingData, low, middle, high, comparer);
         }
 
-        private void Merge<T>(T[] sortingData, int low, int middle, int high, IComparer<T> comparer)
+        private void Merge<T>(Span<T> sortingData, int low, int middle, int high, IComparer<T> comparer)
         {
             // Prepare left sorted part for merging.
             var leftSortedPart = new Queue<T>(middle - low + 1);

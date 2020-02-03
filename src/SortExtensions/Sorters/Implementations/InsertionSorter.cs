@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using static SortExtensions.Helpers.SwapHelper;
 
@@ -13,13 +14,12 @@ namespace SortExtensions.Sorters.Implementations
     /// </remarks>
     public class InsertionSorter : Sorter
     {
-        protected override void SortCore<T>(T[] sortingData, int index, int length, IComparer<T> comparer)
+        protected override void SortCore<T>(Span<T> sortingData, IComparer<T> comparer)
         {
-            var lastIndex = index + length - 1;
-            for (var baseIndex = index + 1; baseIndex <= lastIndex; baseIndex++)
+            for (var baseIndex = 1; baseIndex < sortingData.Length; baseIndex++)
             {
                 for (var current = baseIndex;
-                    current > index && comparer.Compare(sortingData[current], sortingData[current - 1]) < 0;
+                    current > 0 && comparer.Compare(sortingData[current], sortingData[current - 1]) < 0;
                     current--)
                 {
                     Swap(sortingData, current, current - 1);
