@@ -19,7 +19,7 @@ namespace SortExtensions.Sorters.Implementations
             MergeSort(sortingData, 0, sortingData.Length - 1, comparer);
         }
 
-        private void MergeSort<T>(Span<T> sortingData, int low, int high, IComparer<T> comparer)
+        private static void MergeSort<T>(Span<T> sortingData, int low, int high, IComparer<T> comparer)
         {
             if (low >= high)
             {
@@ -31,8 +31,8 @@ namespace SortExtensions.Sorters.Implementations
             MergeSort(sortingData, middle + 1, high, comparer);
             Merge(sortingData, low, middle, high, comparer);
         }
-
-        private void Merge<T>(Span<T> sortingData, int low, int middle, int high, IComparer<T> comparer)
+        
+        private static void Merge<T>(Span<T> sortingData, int low, int middle, int high, IComparer<T> comparer)
         {
             // Prepare left sorted part for merging.
             var leftSortedPart = new Queue<T>(middle - low + 1);
