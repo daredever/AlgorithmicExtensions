@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using static SortExtensions.Helpers.ValidationHelper;
 
 namespace SortExtensions.Helpers
 {
