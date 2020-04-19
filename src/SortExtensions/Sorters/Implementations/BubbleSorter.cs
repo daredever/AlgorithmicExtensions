@@ -18,11 +18,11 @@ namespace SortExtensions.Sorters.Implementations
 		{
 			// For each iteration decrease last index, cause it's already sorted.
 			var isSorted = true;
-			for (var lastIndex = sortingData.Length - 1; lastIndex >= 0; lastIndex--)
+			for (var last = sortingData.Length - 1; last >= 0; last--)
 			{
 				// Compare current and next elements, swap if needed.
 				// Ascending order sort.
-				for (var current = 0; current < lastIndex; current++)
+				for (var current = 0; current < last; current++)
 				{
 					var next = current + 1;
 					if (comparer.Compare(sortingData[current], sortingData[next]) > 0)
@@ -32,7 +32,8 @@ namespace SortExtensions.Sorters.Implementations
 					}
 				}
 
-				// Abort execution if it's no swapped elements, cause collection has already sorted.
+				// Abort execution if it's no swapped elements,
+				// cause collection has already sorted.
 				if (isSorted)
 				{
 					break;

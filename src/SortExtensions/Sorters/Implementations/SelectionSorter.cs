@@ -17,22 +17,22 @@ namespace SortExtensions.Sorters.Implementations
 		protected override void SortCore<T>(Span<T> sortingData, IComparer<T> comparer)
 		{
 			// For each iteration increase first index, cause it's already sorted.
-			for (var firstIndex = 0; firstIndex < sortingData.Length - 1; firstIndex++)
+			for (var first = 0; first < sortingData.Length - 1; first++)
 			{
 				// Compare current and next elements, swap if needed.
 				// Ascending order sort.
-				var minIndex = firstIndex;
-				for (var current = firstIndex + 1; current < sortingData.Length; current++)
+				var min = first;
+				for (var current = first + 1; current < sortingData.Length; current++)
 				{
-					if (comparer.Compare(sortingData[minIndex], sortingData[current]) > 0)
+					if (comparer.Compare(sortingData[min], sortingData[current]) > 0)
 					{
-						minIndex = current;
+						min = current;
 					}
 				}
 
-				if (firstIndex != minIndex)
+				if (first != min)
 				{
-					Swap(sortingData, firstIndex, minIndex);
+					Swap(sortingData, first, min);
 				}
 			}
 		}

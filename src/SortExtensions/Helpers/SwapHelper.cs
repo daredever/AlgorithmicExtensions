@@ -3,7 +3,7 @@ using System;
 namespace SortExtensions.Helpers
 {
     internal static class SwapHelper
-    {   
+    {
         /// <summary>
         /// Swap two elements in collection.
         /// </summary>

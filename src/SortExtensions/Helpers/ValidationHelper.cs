@@ -19,7 +19,7 @@ namespace SortExtensions.Helpers
                 throw new ArgumentNullException(nameof(source));
             }
         }
-        
+
         /// <summary>
         /// Checks if sorter is null.
         /// </summary>
