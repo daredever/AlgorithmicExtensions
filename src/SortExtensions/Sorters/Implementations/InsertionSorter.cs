@@ -16,9 +16,9 @@ namespace SortExtensions.Sorters.Implementations
     {
         protected override void SortCore<T>(Span<T> sortingData, IComparer<T> comparer)
         {
-            for (var baseIndex = 1; baseIndex < sortingData.Length; baseIndex++)
+            for (var last = 1; last < sortingData.Length; last++)
             {
-                for (var current = baseIndex;
+                for (var current = last;
                     current > 0 && comparer.Compare(sortingData[current], sortingData[current - 1]) < 0;
                     current--)
                 {
