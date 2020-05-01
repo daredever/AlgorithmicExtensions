@@ -20,7 +20,7 @@ namespace SortExtensions.Sorters
                 return sortingSource;
             }
 
-            //A Sort Algorithm core.
+            // A Sort Algorithm core.
             var sortingData = new Span<T>(sortingSource, index, length);
             SortCore(sortingData, comparer ?? Comparer<T>.Default);
 
