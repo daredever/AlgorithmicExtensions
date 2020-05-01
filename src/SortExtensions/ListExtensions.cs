@@ -85,7 +85,7 @@ namespace SortExtensions
         /// <typeparam name="T">Element type, must be IComparable</typeparam>
         /// <returns>The sorted collection</returns>
         /// <exception cref="ArgumentNullException">source is null</exception>
-        /// <exception cref="ArgumentOutOfRangeException">start index or of range less than zero</exception>
+        /// <exception cref="ArgumentOutOfRangeException">start index or length of range less than zero</exception>
         /// <exception cref="ArgumentOutOfRangeException">collection bounds less than range</exception>
         /// <exception cref="ArgumentOutOfRangeException">wrong sorting algorithm specified</exception>
         public static IList<T> Sort<T>(this IList<T> source, Range range, SortingAlgorithm sortingAlgorithm,
