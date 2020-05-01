@@ -12,7 +12,7 @@ namespace SortExtensions.Sorters.Implementations
     /// Best-case performance O(n).
     /// To learn more, see https://en.wikipedia.org/wiki/Insertion_sort
     /// </remarks>
-    public class InsertionSorter : Sorter
+    internal sealed class InsertionSorter : Sorter
     {
         protected override void SortCore<T>(Span<T> sortingData, IComparer<T> comparer)
         {

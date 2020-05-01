@@ -60,7 +60,7 @@ namespace SortExtensions.Tests.Base
             var source = (IList<T>) income;
 
             // Act
-            var sorted = source.Sort(Sorter);
+            var sorted = source.Sort(SorterFactory.GetSorter(SortingAlgorithm));
 
             // Assert
             sorted.Should().Equal(expected);

@@ -12,7 +12,7 @@ namespace SortExtensions.Helpers
         /// <param name="source">Collection</param>
         /// <typeparam name="T">Element type</typeparam>
         /// <exception cref="ArgumentNullException">source is null</exception>
-        internal static void CheckSource<T>(IEnumerable<T> source)
+        public static void CheckSource<T>(IEnumerable<T> source)
         {
             if (source is null)
             {
@@ -25,7 +25,7 @@ namespace SortExtensions.Helpers
         /// </summary>
         /// <param name="sorter">Implementation of sorting algorithm</param>
         /// <exception cref="ArgumentNullException">sorter is null</exception>
-        internal static void CheckSorter(ISorter sorter)
+        public static void CheckSorter(ISorter sorter)
         {
             if (sorter is null)
             {
@@ -39,7 +39,7 @@ namespace SortExtensions.Helpers
         /// <param name="index">Start index for sorting</param>
         /// <param name="length">Elements count for sorting</param>
         /// <exception cref="ArgumentOutOfRangeException">index or length less than zero</exception>
-        internal static void CheckSectionBounds(int index, int length)
+        public static void CheckSectionBounds(int index, int length)
         {
             if (index < 0 || length < 0)
             {
@@ -56,7 +56,7 @@ namespace SortExtensions.Helpers
         /// <param name="length">Elements count for sorting</param>
         /// <param name="max">Max index in collection</param>
         /// <exception cref="ArgumentOutOfRangeException">collection bounds less than section</exception>
-        internal static void CheckSourceBounds(int index, int length, int max)
+        public static void CheckSourceBounds(int index, int length, int max)
         {
             if (index > max || length > max - index + 1)
             {

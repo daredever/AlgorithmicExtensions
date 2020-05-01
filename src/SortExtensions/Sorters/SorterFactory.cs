@@ -1,11 +1,13 @@
 using System;
 using SortExtensions.Sorters.Implementations;
 
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("SortExtensions.Tests")]
+
 namespace SortExtensions.Sorters
 {
     internal static class SorterFactory
     {
-        internal static ISorter GetSorter(SortingAlgorithm sortingAlgorithm) =>
+        public static ISorter GetSorter(SortingAlgorithm sortingAlgorithm) =>
             sortingAlgorithm switch
             {
                 SortingAlgorithm.BubbleSort => new BubbleSorter(),

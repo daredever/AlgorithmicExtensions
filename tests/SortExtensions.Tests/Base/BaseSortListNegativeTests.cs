@@ -7,7 +7,7 @@ using Xunit;
 
 namespace SortExtensions.Tests.Base
 {
-    public abstract class BaseSortListNegativeTests: BaseSortTest
+    public abstract class BaseSortListNegativeTests : BaseSortTest
     {
         [Theory]
         [ClassData(typeof(NegativeFullSortDataGenerator))]

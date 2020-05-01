@@ -12,7 +12,7 @@ namespace SortExtensions.Sorters.Implementations
     /// Best-case performance O(n).
     /// To learn more, see https://en.wikipedia.org/wiki/Merge_sort
     /// </remarks>
-    public class MergeSorter : Sorter
+    internal sealed class MergeSorter : Sorter
     {
         protected override void SortCore<T>(Span<T> sortingData, IComparer<T> comparer)
         {
@@ -31,7 +31,7 @@ namespace SortExtensions.Sorters.Implementations
             MergeSort(sortingData, middle + 1, high, comparer);
             Merge(sortingData, low, middle, high, comparer);
         }
-        
+
         private static void Merge<T>(Span<T> sortingData, int low, int middle, int high, IComparer<T> comparer)
         {
             // Prepare left sorted part for merging.

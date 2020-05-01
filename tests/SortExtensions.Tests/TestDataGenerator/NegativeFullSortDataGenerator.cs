@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using SortExtensions.Sorters;
 
 namespace SortExtensions.Tests.TestDataGenerator
 {
