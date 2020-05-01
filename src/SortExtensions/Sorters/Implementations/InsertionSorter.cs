@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using static SortExtensions.Helpers.SwapHelper;
+using static SortExtensions.Sorters.Helpers.SwapHelper;
 
 namespace SortExtensions.Sorters.Implementations
 {

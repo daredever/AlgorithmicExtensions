@@ -13,6 +13,6 @@ namespace SortExtensions.Sorters
         /// <param name="comparer">Comparer</param>
         /// <typeparam name="T">Element type, must be IComparable</typeparam>
         /// <returns>Sorted collection</returns>
-        IList<T> Sort<T>(IList<T> source, int index, int length, IComparer<T> comparer);
+        IList<T> Sort<T>(IList<T> source, int index, int length, IComparer<T> comparer = null);
     }
 }

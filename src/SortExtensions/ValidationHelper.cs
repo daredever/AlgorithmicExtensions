@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using SortExtensions.Sorters;
 
-namespace SortExtensions.Helpers
+namespace SortExtensions
 {
     internal static class ValidationHelper
     {
@@ -34,17 +34,18 @@ namespace SortExtensions.Helpers
         }
 
         /// <summary>
-        /// Checks if bounds of section of collection is less than zero.
+        /// Checks if bounds of range of collection is less than zero.
         /// </summary>
         /// <param name="index">Start index for sorting</param>
         /// <param name="length">Elements count for sorting</param>
         /// <exception cref="ArgumentOutOfRangeException">index or length less than zero</exception>
-        public static void CheckSectionBounds(int index, int length)
+        public static void CheckRangeBounds(int index, int length)
         {
             if (index < 0 || length < 0)
             {
                 var paramName = length < 0 ? nameof(length) : nameof(index);
                 var message = $"Param '{paramName}' should not be less than zero.";
+
                 throw new ArgumentOutOfRangeException(paramName, message);
             }
         }
@@ -61,7 +62,8 @@ namespace SortExtensions.Helpers
             if (index > max || length > max - index + 1)
             {
                 var paramName = length > max - index ? nameof(length) : nameof(index);
-                var message = $"Param '{paramName}' too big for source bounds.";
+                var message = $"Param '{paramName}' is outside the bounds for source bounds.";
+
                 throw new ArgumentOutOfRangeException(paramName, message);
             }
         }

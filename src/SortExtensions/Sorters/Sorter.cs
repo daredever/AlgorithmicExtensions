@@ -8,7 +8,7 @@ namespace SortExtensions.Sorters
     /// </summary>
     public abstract class Sorter : ISorter
     {
-        public IList<T> Sort<T>(IList<T> source, int index, int length, IComparer<T> comparer)
+        public IList<T> Sort<T>(IList<T> source, int index, int length, IComparer<T> comparer = null)
         {
             // Copy input data.
             var sortingSource = new T[source.Count];
@@ -22,7 +22,7 @@ namespace SortExtensions.Sorters
 
             //A Sort Algorithm core.
             var sortingData = new Span<T>(sortingSource, index, length);
-            SortCore(sortingData, comparer);
+            SortCore(sortingData, comparer ?? Comparer<T>.Default);
 
             return sortingSource;
         }

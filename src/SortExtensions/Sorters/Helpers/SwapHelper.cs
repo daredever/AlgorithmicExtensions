@@ -1,6 +1,6 @@
 using System;
 
-namespace SortExtensions.Helpers
+namespace SortExtensions.Sorters.Helpers
 {
     internal static class SwapHelper
     {
