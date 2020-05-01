@@ -17,9 +17,10 @@ namespace SortExtensions.Sorters.Implementations
 		protected override void SortCore<T>(Span<T> sortingData, IComparer<T> comparer)
 		{
 			// For each iteration decrease last index, cause it's already sorted.
-			var isSorted = true;
-			for (var last = sortingData.Length - 1; last >= 0; last--)
+            for (var last = sortingData.Length - 1; last >= 0; last--)
 			{
+                var isSorted = true;
+                
 				// Compare current and next elements, swap if needed.
 				// Ascending order sort.
 				for (var current = 0; current < last; current++)
@@ -32,7 +33,7 @@ namespace SortExtensions.Sorters.Implementations
 					}
 				}
 
-				// Abort execution if it's no swapped elements,
+				// Abort execution if there is no swapped elements,
 				// cause collection has already sorted.
 				if (isSorted)
 				{
