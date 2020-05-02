@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SortExtensions.Tests.TestDataGenerator
 {
-    public class NegativeFullSortDataGenerator : IEnumerable<object[]>
+    public class NegativeRangeSortDataGenerator : IEnumerable<object[]>
     {
         public IEnumerator<object[]> GetEnumerator()
         {
@@ -12,15 +12,15 @@ namespace SortExtensions.Tests.TestDataGenerator
             string message;
 
             source = new[] {1};
-            index = 1;
-            length = source.Length;
-            message = "Param 'length' is outside the bounds for source. (Parameter 'length')";
+            index = 0;
+            length = source.Length + 1;
+            message = "Specified argument was out of the range of valid values. (Parameter 'length')";
             yield return new object[] {source, index, length, message};
 
             source = new[] {1};
-            index = -1;
-            length = source.Length;
-            message = "Param 'index' should not be less than zero. (Parameter 'index')";
+            index = 1;
+            length = 1;
+            message = "Specified argument was out of the range of valid values. (Parameter 'length')";
             yield return new object[] {source, index, length, message};
         }
 

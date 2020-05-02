@@ -1,5 +1,3 @@
-using SortExtensions.Sorters;
-
 namespace SortExtensions.Tests.Base
 {
     public abstract class BaseSortTest

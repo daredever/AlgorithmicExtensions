@@ -41,12 +41,16 @@ namespace SortExtensions
         /// <exception cref="ArgumentOutOfRangeException">index or length less than zero</exception>
         public static void CheckRangeBounds(int index, int length)
         {
-            if (index < 0 || length < 0)
-            {
-                var paramName = length < 0 ? nameof(length) : nameof(index);
-                var message = $"Param '{paramName}' should not be less than zero.";
+            const string message = "Non-negative number required.";
 
-                throw new ArgumentOutOfRangeException(paramName, message);
+            if (index < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index), message);
+            }
+
+            if (length < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(length), message);
             }
         }
 
@@ -59,21 +63,21 @@ namespace SortExtensions
         /// <exception cref="ArgumentOutOfRangeException">collection bounds less than section</exception>
         public static void CheckSourceBounds(int index, int length, int sourceLength)
         {
-            if (index > sourceLength)
+            if (sourceLength == 0)
             {
-                const string paramName = nameof(index);
-                var message = $"Param '{paramName}' is outside the bounds for source.";
-
-                throw new ArgumentOutOfRangeException(paramName, message);
+                return;
             }
 
-            var maxLength = sourceLength - index;
-            if (length > maxLength)
-            {
-                const string paramName = nameof(length);
-                var message = $"Param '{paramName}' is outside the bounds for source.";
+            const string message = "Specified argument was out of the range of valid values.";
 
-                throw new ArgumentOutOfRangeException(paramName, message);
+            if (index > sourceLength - 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index), message);
+            }
+
+            if (length > sourceLength - index)
+            {
+                throw new ArgumentOutOfRangeException(nameof(length), message);
             }
         }
     }
