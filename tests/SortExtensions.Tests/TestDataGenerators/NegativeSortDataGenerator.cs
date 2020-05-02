@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace SortExtensions.Tests.TestDataGenerator
+namespace SortExtensions.Tests.TestDataGenerators
 {
     public class NegativeSortDataGenerator : IEnumerable<object[]>
     {
@@ -20,7 +20,7 @@ namespace SortExtensions.Tests.TestDataGenerator
             source = new[] {1};
             index = 1;
             length = 1;
-            message = "Specified argument was out of the range of valid values. (Parameter 'index')";
+            message = "Specified argument was out of the range of valid values. (Parameter 'length')";
             yield return new object[] {source, index, length, message};
 
             source = new[] {1};

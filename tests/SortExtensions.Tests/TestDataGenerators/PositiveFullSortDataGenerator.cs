@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace SortExtensions.Tests.TestDataGenerator
+namespace SortExtensions.Tests.TestDataGenerators
 {
     public class PositiveFullSortDataGenerator : IEnumerable<object[]>
     {

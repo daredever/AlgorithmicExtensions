@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using SortExtensions.Tests.TestDataGenerator;
+using SortExtensions.Tests.TestDataGenerators;
 using Xunit;
 using static SortExtensions.Sorters.SorterFactory;
 
@@ -26,12 +26,11 @@ namespace SortExtensions.Tests.Base
 
         [Theory]
         [ClassData(typeof(NegativeRangeSortDataGenerator))]
-        public void Sort_IList_Range_Is_Not_Valid<T>(T[] income, int index, int length, string expectedMessage)
+        public void Sort_IList_Range_Is_Not_Valid<T>(T[] income, Range range, string expectedMessage)
             where T : IComparable
         {
             // Arrange
             var source = (IList<T>) income;
-            var range = new Range(index, index + length);
 
             // Act
             Action action = () => source.Sort(range, SortingAlgorithm);
@@ -58,12 +57,11 @@ namespace SortExtensions.Tests.Base
 
         [Theory]
         [ClassData(typeof(NegativeRangeSortDataGenerator))]
-        public void Sort_IList_Range_BySorter_Is_Not_Valid<T>(T[] income, int index, int length, string expectedMessage)
+        public void Sort_IList_Range_BySorter_Is_Not_Valid<T>(T[] income, Range range, string expectedMessage)
             where T : IComparable
         {
             // Arrange
             var source = (IList<T>) income;
-            var range = new Range(index, index + length);
             var sorter = GetSorter(SortingAlgorithm);
 
             // Act

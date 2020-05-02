@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using SortExtensions.Tests.TestDataGenerator;
+using SortExtensions.Tests.TestDataGenerators;
 using Xunit;
 using static SortExtensions.Sorters.SorterFactory;
 

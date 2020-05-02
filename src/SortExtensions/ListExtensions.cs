@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using SortExtensions.Sorters;
 using static SortExtensions.ValidationHelper;
 using static SortExtensions.Sorters.SorterFactory;
@@ -129,6 +130,7 @@ namespace SortExtensions
             return SortInternal(source, range, sorter, comparer);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static IList<T> SortInternal<T>(IList<T> source, int index, int length, ISorter sorter,
             IComparer<T> comparer = null)
         {
@@ -140,6 +142,7 @@ namespace SortExtensions
             return sorter.Sort(source, index, length, comparer);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static IList<T> SortInternal<T>(IList<T> source, Range range, ISorter sorter,
             IComparer<T> comparer = null)
         {
