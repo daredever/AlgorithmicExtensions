@@ -9,12 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{93C70554-2D5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortExtensions", "src\SortExtensions\SortExtensions.csproj", "{4DBBE817-7080-4A0D-9C42-D52FB3177A1A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{D360B8EC-3712-43B0-9EFF-CFF1158AB025}"
-ProjectSection(SolutionItems) = preProject
-	README.md = README.md
-	LICENSE = LICENSE
-EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchExtensions", "src\SearchExtensions\SearchExtensions.csproj", "{C128A9CB-F96C-4571-95C8-430D134C55DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchExtensions.Tests", "tests\SearchExtensions.Tests\SearchExtensions.Tests.csproj", "{78AC700A-748B-46B3-B478-3767FAD89FE1}"
