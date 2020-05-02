@@ -11,7 +11,7 @@ Supported algorithms:
 1. Merge sort
 
 Also possible to implement any other sorting algorithms for extensions 
-if new sorter class inherits from **ISorter** interface or **Sorter** abstract class with template method _SortCore_.
+if new sorter class inherits from **ISorter** interface or **Sorter** abstract class.
 
 ## Searching
 
