@@ -55,14 +55,23 @@ namespace SortExtensions
         /// </summary>
         /// <param name="index">Start index for sorting</param>
         /// <param name="length">Elements count for sorting</param>
-        /// <param name="max">Max index in collection</param>
+        /// <param name="sourceLength">Source elements count</param>
         /// <exception cref="ArgumentOutOfRangeException">collection bounds less than section</exception>
-        public static void CheckSourceBounds(int index, int length, int max)
+        public static void CheckSourceBounds(int index, int length, int sourceLength)
         {
-            if (index > max || length > max - index + 1)
+            if (index > sourceLength)
             {
-                var paramName = length > max - index ? nameof(length) : nameof(index);
-                var message = $"Param '{paramName}' is outside the bounds for source bounds.";
+                const string paramName = nameof(index);
+                var message = $"Param '{paramName}' is outside the bounds for source.";
+
+                throw new ArgumentOutOfRangeException(paramName, message);
+            }
+
+            var maxLength = sourceLength - index;
+            if (length > maxLength)
+            {
+                const string paramName = nameof(length);
+                var message = $"Param '{paramName}' is outside the bounds for source.";
 
                 throw new ArgumentOutOfRangeException(paramName, message);
             }

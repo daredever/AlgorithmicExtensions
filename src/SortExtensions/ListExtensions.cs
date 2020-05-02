@@ -135,7 +135,7 @@ namespace SortExtensions
             CheckSource(source);
             CheckSorter(sorter);
             CheckRangeBounds(index, length);
-            CheckSourceBounds(index, length, Math.Max(source.Count - 1, 0));
+            CheckSourceBounds(index, length, source.Count);
 
             return sorter.Sort(source, index, length, comparer);
         }

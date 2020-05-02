@@ -14,7 +14,7 @@ namespace SortExtensions.Tests.TestDataGenerator
             source = new[] {1};
             index = 1;
             length = source.Length;
-            message = "Param 'length' is outside the bounds for source bounds. (Parameter 'length')";
+            message = "Param 'length' is outside the bounds for source. (Parameter 'length')";
             yield return new object[] {source, index, length, message};
 
             source = new[] {1};
