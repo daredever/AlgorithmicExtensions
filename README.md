@@ -13,6 +13,8 @@ Supported algorithms:
 Also possible to implement any other sorting algorithms for extensions 
 if new sorter class inherits from **ISorter** interface or **Sorter** abstract class.
 
+Package available on [Nuget.Org](https://www.nuget.org/packages/SortExtensions/)
+
 ## Searching
 
  This project will distribute some list's searching extensions.
