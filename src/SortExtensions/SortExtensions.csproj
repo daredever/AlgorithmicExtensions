@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <!-- Properties related to NuGet packaging: -->
+        <IsPackable>True</IsPackable>
+        <PackageId>SortExtensions</PackageId>
+        <Version>0.0.1</Version>
+        <Authors>Roman Shcherbakov</Authors>
+        <Title>SortExtensions: a simple library with extensions for sorting</Title>
+        <Description>SortExtensions is a set of IList extensions for sorting.</Description>
+        <PackageTags>sorting</PackageTags>
+        <PackageProjectUrl>https://github.com/daredever/AlgorithmicExtensions</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/daredever/AlgorithmicExtensions</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    </PropertyGroup>
+
+</Project>
