@@ -1,8 +1,6 @@
 using System;
 using SortExtensions.Sorters.Implementations;
 
-[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("SortExtensions.Tests")]
-
 namespace SortExtensions.Sorters
 {
     internal static class SorterFactory
